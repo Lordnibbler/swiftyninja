@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		884283F02488BE46009E643A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884283EF2488BE46009E643A /* AppDelegate.swift */; };
 		884283F22488BE46009E643A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 884283F12488BE46009E643A /* GameScene.sks */; };
-		884283F42488BE46009E643A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 884283F32488BE46009E643A /* Actions.sks */; };
 		884283F62488BE46009E643A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884283F52488BE46009E643A /* GameScene.swift */; };
 		884283F82488BE46009E643A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884283F72488BE46009E643A /* GameViewController.swift */; };
 		884283FB2488BE46009E643A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884283F92488BE46009E643A /* Main.storyboard */; };
@@ -17,6 +16,17 @@
 		884284002488BE47009E643A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884283FE2488BE47009E643A /* LaunchScreen.storyboard */; };
 		8842840B2488BE47009E643A /* swiftyninjaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8842840A2488BE47009E643A /* swiftyninjaTests.swift */; };
 		884284162488BE47009E643A /* swiftyninjaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884284152488BE47009E643A /* swiftyninjaUITests.swift */; };
+		8842842E2488BF51009E643A /* swoosh1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 884284232488BF50009E643A /* swoosh1.caf */; };
+		8842842F2488BF51009E643A /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 884284242488BF51009E643A /* whack.caf */; };
+		884284302488BF51009E643A /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 884284252488BF51009E643A /* explosion.caf */; };
+		884284312488BF51009E643A /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 884284262488BF51009E643A /* wrong.caf */; };
+		884284322488BF51009E643A /* sliceBombFuse.caf in Resources */ = {isa = PBXBuildFile; fileRef = 884284272488BF51009E643A /* sliceBombFuse.caf */; };
+		884284332488BF51009E643A /* sliceHitBomb.sks in Resources */ = {isa = PBXBuildFile; fileRef = 884284282488BF51009E643A /* sliceHitBomb.sks */; };
+		884284342488BF51009E643A /* sliceFuse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 884284292488BF51009E643A /* sliceFuse.sks */; };
+		884284352488BF51009E643A /* sliceHitEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8842842A2488BF51009E643A /* sliceHitEnemy.sks */; };
+		884284362488BF51009E643A /* swoosh2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8842842B2488BF51009E643A /* swoosh2.caf */; };
+		884284372488BF51009E643A /* swoosh3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8842842C2488BF51009E643A /* swoosh3.caf */; };
+		884284382488BF51009E643A /* launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8842842D2488BF51009E643A /* launch.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +50,6 @@
 		884283EC2488BE46009E643A /* swiftyninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyninja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884283EF2488BE46009E643A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884283F12488BE46009E643A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		884283F32488BE46009E643A /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		884283F52488BE46009E643A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		884283F72488BE46009E643A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		884283FA2488BE46009E643A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +62,17 @@
 		884284112488BE47009E643A /* swiftyninjaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftyninjaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		884284152488BE47009E643A /* swiftyninjaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftyninjaUITests.swift; sourceTree = "<group>"; };
 		884284172488BE47009E643A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		884284232488BF50009E643A /* swoosh1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh1.caf; sourceTree = "<group>"; };
+		884284242488BF51009E643A /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		884284252488BF51009E643A /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.caf; sourceTree = "<group>"; };
+		884284262488BF51009E643A /* wrong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.caf; sourceTree = "<group>"; };
+		884284272488BF51009E643A /* sliceBombFuse.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sliceBombFuse.caf; sourceTree = "<group>"; };
+		884284282488BF51009E643A /* sliceHitBomb.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceHitBomb.sks; sourceTree = "<group>"; };
+		884284292488BF51009E643A /* sliceFuse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceFuse.sks; sourceTree = "<group>"; };
+		8842842A2488BF51009E643A /* sliceHitEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceHitEnemy.sks; sourceTree = "<group>"; };
+		8842842B2488BF51009E643A /* swoosh2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh2.caf; sourceTree = "<group>"; };
+		8842842C2488BF51009E643A /* swoosh3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh3.caf; sourceTree = "<group>"; };
+		8842842D2488BF51009E643A /* launch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = launch.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +125,23 @@
 			children = (
 				884283EF2488BE46009E643A /* AppDelegate.swift */,
 				884283F12488BE46009E643A /* GameScene.sks */,
-				884283F32488BE46009E643A /* Actions.sks */,
 				884283F52488BE46009E643A /* GameScene.swift */,
 				884283F72488BE46009E643A /* GameViewController.swift */,
 				884283F92488BE46009E643A /* Main.storyboard */,
 				884283FC2488BE47009E643A /* Assets.xcassets */,
 				884283FE2488BE47009E643A /* LaunchScreen.storyboard */,
 				884284012488BE47009E643A /* Info.plist */,
+				884284252488BF51009E643A /* explosion.caf */,
+				8842842D2488BF51009E643A /* launch.caf */,
+				884284272488BF51009E643A /* sliceBombFuse.caf */,
+				884284292488BF51009E643A /* sliceFuse.sks */,
+				884284282488BF51009E643A /* sliceHitBomb.sks */,
+				8842842A2488BF51009E643A /* sliceHitEnemy.sks */,
+				884284232488BF50009E643A /* swoosh1.caf */,
+				8842842B2488BF51009E643A /* swoosh2.caf */,
+				8842842C2488BF51009E643A /* swoosh3.caf */,
+				884284242488BF51009E643A /* whack.caf */,
+				884284262488BF51009E643A /* wrong.caf */,
 			);
 			path = swiftyninja;
 			sourceTree = "<group>";
@@ -239,10 +269,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				884283FB2488BE46009E643A /* Main.storyboard in Resources */,
+				884284382488BF51009E643A /* launch.caf in Resources */,
+				884284302488BF51009E643A /* explosion.caf in Resources */,
+				8842842E2488BF51009E643A /* swoosh1.caf in Resources */,
+				884284352488BF51009E643A /* sliceHitEnemy.sks in Resources */,
+				884284322488BF51009E643A /* sliceBombFuse.caf in Resources */,
+				884284332488BF51009E643A /* sliceHitBomb.sks in Resources */,
 				884283F22488BE46009E643A /* GameScene.sks in Resources */,
 				884283FD2488BE47009E643A /* Assets.xcassets in Resources */,
+				884284342488BF51009E643A /* sliceFuse.sks in Resources */,
 				884284002488BE47009E643A /* LaunchScreen.storyboard in Resources */,
-				884283F42488BE46009E643A /* Actions.sks in Resources */,
+				884284312488BF51009E643A /* wrong.caf in Resources */,
+				8842842F2488BF51009E643A /* whack.caf in Resources */,
+				884284362488BF51009E643A /* swoosh2.caf in Resources */,
+				884284372488BF51009E643A /* swoosh3.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.radler.swiftyninja;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -470,7 +510,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.radler.swiftyninja;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
