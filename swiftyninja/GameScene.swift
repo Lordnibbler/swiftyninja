@@ -63,6 +63,8 @@ class GameScene: SKScene {
     // when all enemries are destroyed and ready to create more
     var nextSequenceQueued = true
     
+    var isGameEnded = false
+
     override func didMove(to view: SKView) {
         // called when scene is presented by a view
         
@@ -146,6 +148,31 @@ class GameScene: SKScene {
         addChild(activeSliceFG)
     }
     
+    func subtractLife() {
+        lives -= 1
+
+        // play sound and animate life being lost
+        run(SKAction.playSoundFileNamed("wrong.caf", waitForCompletion: false))
+
+        // remove life from images array
+        var life: SKSpriteNode
+        if lives == 2 {
+            life = livesImages[0]
+        } else if lives == 1 {
+            life = livesImages[1]
+        } else {
+            life = livesImages[2]
+
+            // run out of lives, die
+            endGame(triggeredByBomb: false)
+        }
+
+        // modify contents of sprite without recreating
+        life.texture = SKTexture(imageNamed: "sliceLifeGone")
+        life.xScale = 1.3
+        life.yScale = 1.3
+        life.run(SKAction.scale(to: 1, duration: 0.1))
+    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -158,8 +185,20 @@ class GameScene: SKScene {
             for (index, node) in activeEnemies.enumerated().reversed() {
                 if node.position.y < -140 {
                     // far bottom of screen
-                    node.removeFromParent()
-                    activeEnemies.remove(at: index)
+                    node.removeAllActions()
+                    if node.name == "enemy" {
+                        node.name = ""
+
+                        // lose a life since you missed a pingu
+                        subtractLife()
+
+                        node.removeFromParent()
+                        activeEnemies.remove(at: index)
+                    } else if node.name == "bombContainer" {
+                        node.name = ""
+                        node.removeFromParent()
+                        activeEnemies.remove(at: index)
+                    }
                 }
             }
         } else {
@@ -190,6 +229,7 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isGameEnded == false else { return }
         guard let touch = touches.first else { return }
         
         // add wherever user touched to the slicePoints array and redraw the slice shape
@@ -200,6 +240,99 @@ class GameScene: SKScene {
         // play sound only if sound isnt currently playing
         if !isSwooshSoundActive {
             playSwooshSound()
+        }
+
+        // all nodes under finger right now
+        let nodesAtPoint = nodes(at: location)
+
+        // only enter loop if node is an SKSpriteNode
+        for case let node as SKSpriteNode in nodesAtPoint {
+            if node.name == "enemy" {
+                // destroy penguin
+                if let emitter = SKEmitterNode(fileNamed: "sliceHitEnemy") {
+                    emitter.position = node.position
+                    addChild(emitter)
+                }
+
+
+                // cant keep getting score slicing it
+                node.name = ""
+
+                // stop from falling
+                node.physicsBody?.isDynamic = false
+
+                // scale/fade out
+                let scaleOut = SKAction.scale(to: 0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+
+                // group means run actions at same time rather than sequence
+                let group = SKAction.group([scaleOut, fadeOut])
+                let sequence = SKAction.sequence([group, .removeFromParent()])
+                node.run(sequence)
+
+                // increment player score
+                score += 1
+
+                // find where enemy is in activeEnemies array and remove
+                if let index = activeEnemies.firstIndex(of: node) {
+                    activeEnemies.remove(at: index)
+                }
+
+                // play sound so we know we hit a pingu
+                run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+            } else if node.name == "bomb" {
+                // lose game immediately if you swipe a bomb
+
+                // destroy the bomb
+                guard let bombContainer = node.parent as? SKSpriteNode else { continue }
+
+                if let emitter = SKEmitterNode(fileNamed: "sliceHitBomb") {
+                    emitter.position = bombContainer.position
+                    addChild(emitter)
+                }
+
+                // cant slice more than once
+                node.name = ""
+
+                // stop from falling
+                bombContainer.physicsBody?.isDynamic = false
+
+                let scaleOut = SKAction.scale(to: 0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+                let group = SKAction.group([scaleOut, fadeOut])
+                let sequence = SKAction.sequence([group, .removeFromParent()])
+                bombContainer.run(sequence)
+
+                if let index = activeEnemies.firstIndex(of: bombContainer) {
+                    activeEnemies.remove(at: index)
+                }
+
+                // play explosion sound
+                run(SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false))
+
+                endGame(triggeredByBomb: true)
+            }
+        }
+    }
+
+    func endGame(triggeredByBomb: Bool) {
+        guard isGameEnded == false else { return }
+
+        isGameEnded = true
+        physicsWorld.speed = 0
+
+        // stop ability to tap/swipe
+        isUserInteractionEnabled = false
+
+        // stop bomb sound and destroy audio player
+        bombSoundEffect?.stop()
+        bombSoundEffect = nil
+
+        if triggeredByBomb {
+            for index in 0...2 {
+                livesImages[index].texture = SKTexture(imageNamed: "sliceLifeGone")
+            }
+
         }
     }
     
@@ -367,6 +500,8 @@ class GameScene: SKScene {
     }
     
     func tossEnemies() {
+        guard isGameEnded == false else { return }
+
         // decrease popupTime and chainDelay by a small amount so game gets harder as you play longer
         // increase speed of physics world over time as well
         popupTime *= 0.991
