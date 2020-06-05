@@ -82,7 +82,6 @@ class GameScene: SKScene {
         physicsWorld.speed = 0.85
         
         // set up game
-        print("*** -> set up game")
         createScore()
         createLives()
         createSlices()
@@ -91,17 +90,14 @@ class GameScene: SKScene {
         sequence = [.oneNoBomb, .oneNoBomb, .twoWithOneBomb, .twoWithOneBomb, .three, .one, .chain]
         
         // start creating enemies after 2 seconds
-        print("*** -> creating sequence")
         for _ in 0...1000 {
             if let nextSequence = SequenceType.allCases.randomElement() {
                 sequence.append(nextSequence)
             }
         }
-        print("*** -> created sequence of length \(sequence.count)")
         
         // call tossEnemies after 2s of time has passed
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            print("*** -> first tossEnemies()")
             self?.tossEnemies()
         }
     }
@@ -117,7 +113,6 @@ class GameScene: SKScene {
     }
     
     func createLives() {
-        print("*** -> createLives")
         // create 3 SKSpriteNode and position at top right corner of screen
         // add to livesImages array to show life count while playing
         for i in 0 ..< 3 {
