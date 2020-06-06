@@ -329,6 +329,12 @@ class GameScene: SKScene {
             }
 
         }
+        
+        // transition back to main menu
+        let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+        let menuScene = SKScene(fileNamed: "MenuScene") as! MenuScene
+        menuScene.scaleMode = .fill
+        self.view?.presentScene(menuScene, transition: transition)
     }
     
     func playSwooshSound() {
