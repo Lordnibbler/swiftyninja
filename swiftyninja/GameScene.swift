@@ -86,7 +86,7 @@ class GameScene: SKScene {
         createLives()
         createSlices()
         
-        // make sequence for gameplay
+        // make initial sequence for gameplay
         sequence = [.oneNoBomb, .oneNoBomb, .twoWithOneBomb, .twoWithOneBomb, .three, .one, .chain]
         
         // start creating enemies after 2 seconds
