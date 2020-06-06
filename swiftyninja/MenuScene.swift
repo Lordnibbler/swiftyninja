@@ -13,9 +13,13 @@ class MenuScene: SKScene {
     var highScoreLabel: SKLabelNode?
     
     override func didMove(to view: SKView) {
-        print("didMove to MenuScene")
         newGameButton = self.childNode(withName: "newGameButton") as? SKSpriteNode
         highScoreLabel = self.childNode(withName: "highScoreLabel") as? SKLabelNode
+
+        // read high score
+        let userDefaults = UserDefaults.standard
+        let highScore = userDefaults.integer(forKey: "highScore")
+        highScoreLabel?.text = "High Score: \(highScore)"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

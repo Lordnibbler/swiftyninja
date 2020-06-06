@@ -327,7 +327,14 @@ class GameScene: SKScene {
             for index in 0...2 {
                 livesImages[index].texture = SKTexture(imageNamed: "sliceLifeGone")
             }
+        }
 
+        // record high score
+        let userDefaults = UserDefaults.standard
+        let highScore = userDefaults.integer(forKey: "highScore")
+        if score > highScore {
+            userDefaults.set(score, forKey: "highScore")
+            userDefaults.synchronize()
         }
         
         // transition back to main menu
